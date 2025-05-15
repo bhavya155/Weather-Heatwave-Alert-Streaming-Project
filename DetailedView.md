@@ -49,27 +49,27 @@
 
 * Use `dbutils.fs.mount()` with the correct OAuth configs to mount ADLS Gen2.
 
-  refer
+  [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/e4ed3008024c6b6f505b7c5e4a9b9c99dcbb0076/MountingCheckPoint.py)
 
 ### ✅ Step 2: Bronze Layer - Load Raw JSON Data from Azure Event Hub
 
 * Use Spark Structured Streaming to ingest from Event Hub and write to Delta format in Bronze layer.
 
-   refer
+   [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/e4ed3008024c6b6f505b7c5e4a9b9c99dcbb0076/StreamingWheather%20Bronze.py)
 
 ### ✅ Step 3: Silver Layer - Cleanse & Drop Duplicates
 
 * Read Bronze data and apply deduplication logic based .
 * Write cleansed data to Silver.
 
-  refer
+  [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/e4ed3008024c6b6f505b7c5e4a9b9c99dcbb0076/Streaming%20Wheather%20Silver.py)
 
 ### ✅ Step 4: Gold Layer - SCD2 for Heatwave Alerts
 
 * Filter records with `temperature > 35` and `humidity < 30`.
 * Use `MERGE INTO` logic to implement SCD Type 2 in Delta Lake.
 
-   refer
+   [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/e4ed3008024c6b6f505b7c5e4a9b9c99dcbb0076/StreamingWheatherGold.py)
 
 ---
 
