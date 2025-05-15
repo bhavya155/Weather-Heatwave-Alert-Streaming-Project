@@ -117,22 +117,6 @@ process()
 # MAGIC %sql
 # MAGIC select * from db_projects.dev.weather_sv
 
-# COMMAND ----------
 
-# MAGIC %sql
-# MAGIC INSERT INTO db_projects.dev.weather_sv 
-# MAGIC VALUES (
-# MAGIC     'Hyderabad', 1269843, 'IN', 17.3753, 78.4744,
-# MAGIC     37.4, 37.54, 37.4, 37.4,
-# MAGIC     1004, 27, 1004, 942,
-# MAGIC     'Clouds', 'overcast clouds', '04d',
-# MAGIC     10000, 0.56, 274, 2, 99,
-# MAGIC     UNIX_TIMESTAMP(), 19800, 1747268058, 1747314647,
-# MAGIC     CURRENT_TIMESTAMP()
-# MAGIC );
-# MAGIC
 
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from db_projects.dev.weather_sv where city_name='Hyderabad' order by insert_timestamp desc
+#
