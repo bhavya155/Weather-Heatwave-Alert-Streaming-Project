@@ -71,7 +71,9 @@
 
    [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/e4ed3008024c6b6f505b7c5e4a9b9c99dcbb0076/StreamingWheatherGold.py)
 
----
+
+![image](https://github.com/user-attachments/assets/991620de-0eda-4b01-82cc-2c1d62d9d003)
+
 
 ### ✅ Final Architecture Summary
 
