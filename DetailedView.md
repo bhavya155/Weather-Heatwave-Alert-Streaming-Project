@@ -43,7 +43,13 @@
 
 ---
 
-**🔧 Databricks Setup**
+
+
+
+
+**🔧 Azure Databricks Setup for Real-Time Weather Data Streaming**
+
+---
 
 ### ✅ Step 1: Mount ADLS Gen2 to Databricks (Checkpoint Location)
 
