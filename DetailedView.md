@@ -52,9 +52,11 @@ Copy the Connection String – Primary Key. You'll need this in Databricks.
 
 ✅ Step 4: Send Events (from local machine or script)
 
-Use a Python script to push data to Event Hub: refer
+Use a Python script to push data to Event Hub: [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/ee281281cd6c04dacd4567a79db9eacc8b81ab89/wheatherforDiffferentCities.py)
 
 
-✅ Step 5: Read Event Hub Data in Databricks
+**🔧 DataBricks
+
+✅ Step 1: Read Event Hub Data in Databricks
 
 
