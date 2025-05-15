@@ -45,7 +45,8 @@ This project implements a **scalable, real-time weather data processing pipeline
 
 ### 1. **Data Ingestion**
 
-* The local Weather API (powered by [OpenWeatherMap](https://openweathermap.org/api)) pushes data to **Azure Event Hub**.
+* The local Weather API (powered by [OpenWeatherMap](https://openweathermap.org/api)) pushes data to **Azure Event Hub.
+     refer code.
 * **Databricks Structured Streaming** reads from Event Hub and writes raw data into the **bronze layer**.
 
 ### 2. **Data Cleansing (Silver Layer)**
