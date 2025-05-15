@@ -98,7 +98,7 @@ This project implements a **scalable, real-time weather data processing pipeline
 
 ## ✉️ Contact
 
-For any queries or suggestions, feel free to reach out!
+For any queries or suggestions, feel free to reach out! abhavya155@gmail.com
 
 ---
 
