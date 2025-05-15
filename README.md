@@ -47,7 +47,7 @@ This project implements a **scalable, real-time weather data processing pipeline
 
 * The local Weather API (powered by [OpenWeatherMap](https://openweathermap.org/api)) pushes data to **Azure Event Hub.
 
- refer [code](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/311ab592e084f45d8c2a1333d22ce48fce7614ea/wheatherforDiffferentCities.py).
+ refer [file](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/311ab592e084f45d8c2a1333d22ce48fce7614ea/wheatherforDiffferentCities.py)
  
 * **Databricks Structured Streaming** reads from Event Hub and writes raw data into the **bronze layer**.
 
