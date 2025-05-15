@@ -1,62 +1,92 @@
-**🔧 Azure Event Hub Setup for Real-Time Weather Data Streaming
+**🔧 Azure Event Hub Setup for Real-Time Weather Data Streaming**
 
-✅ Step 1: Create an Azure Event Hubs Namespace
+---
 
-Go to Azure Portal
+### ✅ Step 1: Create an Azure Event Hubs Namespace
 
-Search for Event Hubs in the top search bar.
+* Go to Azure Portal
+* Search for **Event Hubs** in the top search bar.
+* Click “+ Add” to create a new Event Hubs Namespace:
 
-Click “+ Add” to create a new Event Hubs Namespace:
+  * **Name**: `weatherstream-namespace`
+  * **Pricing Tier**: premium
+  * **Location**: Choose your region
+  * **Throughput Units**: 1 (default is fine for small test data)
+* Click **Review + Create** → **Create**
 
-Name: weatherstream-namespace
+### ✅ Step 2: Create an Event Hub Inside the Namespace
 
-Pricing Tier: Standard
+* Open your created namespace.
+* Under **Entities**, click **+ Event Hub**.
+* Set:
 
-Location: Choose your region
+  * **Name**: `weatherstream`
+  * **Partition Count**: 2 (default)
+  * **Message Retention**: 1 day
+* Click **Create**
 
-Throughput Units: 1 (default is fine for small test data)
+### ✅ Step 3: Create a Shared Access Policy (SAS Policy)
 
-Click Review + Create → Create
+* In your Event Hub namespace, go to **Shared access policies**
+* Click **+ Add**
+* Name it: `WeatherStreamPolicy`
+* Permissions:
 
-✅ Step 2: Create an Event Hub Inside the Namespace
+  * Tick both **Send** and **Listen**
+* Click **Create**
+* **Copy the Connection String – Primary Key** for use in Databricks.
 
-Once your namespace is created, open it.
+### ✅ Step 4: Send Events (from local machine or script)
 
-Under Entities, click + Event Hub.
+* Use a Python script to push data to Event Hub:
+  [weatherforDiffferentCities.py](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/ee281281cd6c04dacd4567a79db9eacc8b81ab89/wheatherforDiffferentCities.py)
 
-Set:
+---
 
-Name: weatherstream
+**🔧 Databricks Setup**
 
-Partition Count: 2 (default)
+### ✅ Step 1: Mount ADLS Gen2 to Databricks (Checkpoint Location)
 
-Message Retention: 1 day
+* Use `dbutils.fs.mount()` with the correct OAuth configs to mount ADLS Gen2.
 
-Click Create
+  refer
 
-✅ Step 3: Create a Shared Access Policy (SAS Policy)
+### ✅ Step 2: Bronze Layer - Load Raw JSON Data from Azure Event Hub
 
-In your Event Hub namespace → Shared access policies
+* Use Spark Structured Streaming to ingest from Event Hub and write to Delta format in Bronze layer.
 
-Click + Add
+   refer
 
-Name it: WeatherStreamPolicy
+### ✅ Step 3: Silver Layer - Cleanse & Drop Duplicates
 
-Permissions:
+* Read Bronze data and apply deduplication logic based .
+* Write cleansed data to Silver.
 
-Tick both Send and Listen
+  refer
 
-Click Create
+### ✅ Step 4: Gold Layer - SCD2 for Heatwave Alerts
 
-Copy the Connection String – Primary Key. You'll need this in Databricks.
+* Filter records with `temperature > 35` and `humidity < 30`.
+* Use `MERGE INTO` logic to implement SCD Type 2 in Delta Lake.
 
-✅ Step 4: Send Events (from local machine or script)
+   refer
 
-Use a Python script to push data to Event Hub: [refer](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/ee281281cd6c04dacd4567a79db9eacc8b81ab89/wheatherforDiffferentCities.py)
+---
 
+### ✅ Final Architecture Summary
 
-**🔧 DataBricks
-
-✅ Step 1: Read Event Hub Data in Databricks
-
-
+      ```
+      Event Hub
+         │
+         ▼
+      [Bronze Layer]
+      Raw JSON (append only)
+      
+         ▼
+      [Silver Layer]
+      Cleaned, deduplicated
+      
+         ▼
+      [Gold Layer]
+      Heatwave Alerts (SCD2 Type)
+      ```
