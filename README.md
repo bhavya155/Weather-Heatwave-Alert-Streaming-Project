@@ -1,6 +1,6 @@
 # 🌦️ Scalable Real-Time Weather Data Processing Pipeline
 
-This project implements a **scalable, real-time weather data processing pipeline** using **Azure Event Hub**, **Databricks Delta Lake**, and **Apache Spark Structured Streaming**. The pipeline ingests simulated weather data, performs real-time cleansing and transformation, and generates **heatwave alerts** based on defined temperature and humidity thresholds. It also supports **Slowly Changing Dimension Type 2 (SCD Type 2)** to maintain the historical state of alerts.
+This project implements a **scalable, real-time weather data processing pipeline** using **Azure Event Hub**, **Databricks Delta Lake**, and **Apache Spark Structured Streaming**. The pipeline ingests simulated weather data, performs real-time cleansing and transformation, and generates **heatwave alerts** based on defined temperature and humidity thresholds. It also supports **Slowly Changing Dimension Type 2 (SCD Type 2)** to maintain the historical state of alerts.complete info refer [DeatailedView](https://github.com/bhavya155/Weather-Heatwave-Alert-Streaming-Project/blob/5886ab50be77dbe7b0b7d96d715be484fe55240f/DetailedView.md)
 
 ---
 
